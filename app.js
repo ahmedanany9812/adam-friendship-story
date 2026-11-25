@@ -334,6 +334,7 @@
     const queue = p.say.map(([who, text], i) => ({
       key: `${id}_${i}`, text,
       onStart: () => {
+        document.querySelectorAll(".w.hl").forEach((w) => w.classList.remove("hl"));
         lineEls.forEach((l, j) => { l.row.classList.toggle("on", j === i); if (j < i) l.row.classList.add("done"); });
         lineEls[i].row.scrollIntoView({ block: "nearest", behavior: "smooth" });
       },

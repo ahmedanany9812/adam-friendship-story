@@ -11,7 +11,7 @@ window.CAST = {
   omar:  { name: "عمر",          color: "#2e9e4f" },
   sami:  { name: "سامي",         color: "#3a7bd5" },
   huda:  { name: "الأستاذة هدى", color: "#8e5cc4" },
-  mom:   { name: "أمي",          color: "#138a8a" },
+  mom:   { name: "أم آدم",       color: "#138a8a" },
   kids:  { name: "الجميع",       color: "#d94f8c" },
   judge: { name: "الحكم",        color: "#7a6a00" }
 };
