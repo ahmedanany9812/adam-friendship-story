@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>آدم وأسبوع الصداقة الكبير</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ TITLE SCREEN ============ -->
+<section id="title" class="screen active">
+  <div class="title-card">
+    <div class="title-text">
+      <h1 id="tH1">آدم <span>و</span>أسبوع الصداقة الكبير</h1>
+      <p class="sub" id="tSub">قصة مصوّرة ومسموعة.. أنت من يختار ماذا سيحدث!</p>
+    </div>
+    <img class="cover" src="images/characters.jpg" alt="آدم وأصدقاؤه">
+    <div class="title-buttons">
+      <button class="big-btn orange" id="btnSolo">▶ ابدأ القصة</button>
+      <button class="big-btn blue" id="btnFriends">👫 العب مع أصدقائك</button>
+    </div>
+    <div class="title-row">
+      <div id="endingsFound" class="endings-found"></div>
+      <div class="title-settings">
+        <button class="pill" id="tLang"></button>
+        <button class="pill" id="tVoice"></button>
+        <button class="pill" id="tSpeed"></button>
+        <button class="pill" id="tMusic"></button>
+      </div>
+    </div>
+    <p class="hint" id="tHint"></p>
+  </div>
+</section>
+
+<!-- ============ FRIENDS SETUP ============ -->
+<section id="setup" class="screen">
+  <div class="setup-card">
+    <h2 id="sTitle"></h2>
+    <p id="sSub"></p>
+    <div id="playerInputs"></div>
+    <button class="pill add" id="addPlayer"></button>
+    <h3 id="sModeTitle"></h3>
+    <div class="mode-pick">
+      <label class="mode"><input type="radio" name="mode" value="turns" checked>
+        <div><b id="sModeTurnsT"></b><span id="sModeTurnsS"></span></div></label>
+      <label class="mode"><input type="radio" name="mode" value="vote">
+        <div><b id="sModeVoteT"></b><span id="sModeVoteS"></span></div></label>
+    </div>
+    <div class="setup-buttons">
+      <button class="big-btn grey" id="setupBack"></button>
+      <button class="big-btn orange" id="setupGo"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section id="story" class="screen">
+  <header class="bar">
+    <button class="icon-btn" id="hHome" title="Home">🏠</button>
+    <div class="hearts" id="hearts"></div>
+    <div class="badge-count" id="badgeCount"></div>
+    <div class="players" id="playersBar"></div>
+    <div class="spacer"></div>
+    <button class="icon-btn lang-btn" id="hLang" title="Language">EN</button>
+    <button class="icon-btn" id="hVoice" title="Voice"></button>
+    <button class="icon-btn" id="hMusic" title="Music"></button>
+    <button class="icon-btn" id="hFull" title="Full screen">⛶</button>
+  </header>
+
+  <div class="stage">
+    <div class="pic" id="pic">
+      <div class="chapter" id="chapter"></div>
+    </div>
+    <div class="panel">
+      <div class="lines" id="lines"></div>
+      <div class="talk" id="talk"></div>
+      <div class="turn" id="turn"></div>
+      <div class="choices" id="choices"></div>
+      <div class="nav" id="nav">
+        <button class="nav-btn back" id="nBack">▶</button>
+        <button class="nav-btn replay" id="nReplay"></button>
+        <button class="nav-btn next" id="nNext"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OVERLAYS ============ -->
+<div id="toast" class="overlay">
+  <div class="toast-card">
+    <div class="toast-title" id="toastTitle"></div>
+    <div class="toast-icon" id="toastIcon"></div>
+    <div class="toast-name" id="toastName"></div>
+    <div class="toast-tip" id="toastTip"></div>
+    <button class="big-btn orange" id="toastOk"></button>
+  </div>
+</div>
+
+<div id="ending" class="overlay">
+  <div class="end-card">
+    <div class="the-end" id="endBanner"></div>
+    <h2 id="endTitle"></h2>
+    <div class="end-hearts" id="endHearts"></div>
+    <div class="end-section" id="endBadgesLbl"></div>
+    <div class="end-badges" id="endBadges"></div>
+    <div class="end-section" id="endGalleryLbl"></div>
+    <div class="end-gallery" id="endGallery"></div>
+    <div class="end-talk" id="endTalk"></div>
+    <div class="end-buttons">
+      <button class="big-btn grey" id="endHome"></button>
+      <button class="big-btn orange" id="endAgain"></button>
+    </div>
+  </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script src="story.js"></script>
+<script src="scenes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
