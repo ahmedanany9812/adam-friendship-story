@@ -78,9 +78,12 @@
     }
   }
 
+  const AUDIO_VER = "v2";
+  function audioUrl(key) { return `audio/${key}.mp3?${AUDIO_VER}`; }
+
   function preloadAudio(key) {
     if (!key || audioCache.has(key)) return;
-    const a = new Audio(`audio/${key}.mp3`);
+    const a = new Audio(audioUrl(key));
     a.preload = "auto";
     audioCache.set(key, a);
   }
@@ -98,7 +101,7 @@
       const it = items[i++];
       if (i < items.length) preloadAudio(items[i].key);
 
-      const src = `audio/${it.key}.mp3`;
+      const src = audioUrl(it.key);
       const audio = audioCache.get(it.key) || new Audio(src);
       audio.currentTime = 0;
       audio.playbackRate = settings.slow ? 0.84 : 1.0;
