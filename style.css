@@ -40,14 +40,16 @@ button { font-family: inherit; cursor: pointer; border: none; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .big-btn {
-  font-size: clamp(16px, 2vw, 23px); font-weight: 800; color: #fff;
-  padding: 11px 26px; border-radius: 999px; box-shadow: 0 5px 0 rgba(0,0,0,.18);
+  display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+  font-size: clamp(14px, 1.65vw, 20px); font-weight: 800; color: #fff;
+  padding: 9px 20px; border-radius: 999px; box-shadow: 0 5px 0 rgba(0,0,0,.18);
   transition: transform .15s, box-shadow .15s;
 }
 .big-btn:hover { transform: translateY(-2px); }
 .big-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,.18); }
 .big-btn.orange { background: var(--orange); }
 .big-btn.blue { background: var(--blue); }
+.big-btn.teal { background: #2b9c78; }
 .big-btn.grey { background: #a99a8c; }
 .pill {
   font-size: clamp(13px, 1.3vw, 15px); font-weight: 700; padding: 6px 13px; border-radius: 999px;
@@ -55,31 +57,60 @@ button { font-family: inherit; cursor: pointer; border: none; }
 }
 .pill:hover { border-color: var(--orange); }
 
-/* ---------------- الشاشة الرئيسية ---------------- */
-#title { align-items: center; justify-content: center; padding: 14px; }
-.title-card {
-  width: min(940px, 100%); max-height: calc(100dvh - 28px);
-  background: var(--cream); border-radius: 30px; padding: clamp(14px, 2.2vh, 24px) clamp(16px, 2.5vw, 28px);
-  box-shadow: 0 18px 50px rgba(120, 70, 20, .18); text-align: center;
-  display: flex; flex-direction: column; justify-content: space-between; gap: clamp(8px, 1.5vh, 14px);
+/* ---------------- الشاشة الرئيسية: مكتبة القصص ---------------- */
+#title { align-items: center; justify-content: center; padding: 12px 16px; }
+.library-shell {
+  width: min(1180px, 100%); height: calc(100dvh - 24px);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
 }
-.title-text h1 {
-  margin: 0; font-size: clamp(24px, 4.2vw, 48px); line-height: 1.15; color: var(--orange);
-  text-shadow: 3px 3px 0 #ffe0b8;
+.lib-header { text-align: center; flex: 0 0 auto; }
+.lib-header h1 {
+  margin: 0; font-size: clamp(22px, 3.2vw, 38px); line-height: 1.15; color: var(--orange);
+  text-shadow: 2px 2px 0 #ffe0b8;
 }
-.title-text h1 span { font-size: .6em; color: var(--ink); text-shadow: none; margin: 0 4px; }
-.sub { margin: 4px 0 0; font-size: clamp(14px, 1.8vw, 19px); font-weight: 700; }
+.sub { margin: 2px 0 0; font-size: clamp(13px, 1.5vw, 17px); font-weight: 700; opacity: .9; }
+
+.story-grid {
+  flex: 1; min-height: 0; display: grid; gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) {
+  .story-grid { grid-template-columns: 1fr; grid-template-rows: repeat(2, minmax(0, 1fr)); }
+}
+.story-card {
+  background: var(--cream); border-radius: 26px; padding: clamp(12px, 1.8vh, 20px) clamp(14px, 2vw, 22px);
+  box-shadow: 0 14px 36px rgba(120, 70, 20, .15); border: 4px solid #fff;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: center;
+  text-align: center; gap: 6px; min-height: 0; overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.story-card:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(120, 70, 20, .2); }
+.felfel-card { background: linear-gradient(180deg, #f4fdf7, #fff9ee); }
+.card-badge {
+  font-size: clamp(11.5px, 1.1vw, 13px); font-weight: 800; color: #fff;
+  padding: 3px 12px; border-radius: 999px;
+}
+.card-badge.orange { background: var(--orange); }
+.card-badge.teal { background: #2b9c78; }
+.story-card h2 {
+  margin: 0; font-size: clamp(18px, 2.2vw, 28px); line-height: 1.15; color: var(--orange);
+}
+.story-card h2 span { font-size: .7em; color: var(--ink); margin: 0 3px; }
+.story-card h2.teal-title { color: #2b9c78; }
+.card-desc { margin: 0; font-size: clamp(12px, 1.25vw, 15px); font-weight: 600; opacity: .85; line-height: 1.35; }
 .cover {
-  width: 100%; height: auto; max-height: clamp(140px, 38dvh, 330px);
-  object-fit: contain; border-radius: 16px; animation: bob 4s ease-in-out infinite;
+  width: 100%; flex: 1; min-height: 0; max-height: 36dvh;
+  object-fit: contain; border-radius: 14px; animation: bob 4s ease-in-out infinite;
 }
-@keyframes bob { 50% { transform: translateY(-5px); } }
-.title-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.title-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.title-settings { display: flex; gap: 8px; flex-wrap: wrap; }
-.endings-found { font-size: clamp(14px, 1.5vw, 16px); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.endings-found .mini { width: 48px; height: 28px; border-radius: 6px; object-fit: cover; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,.15); }
-.endings-found .lock { width: 48px; height: 28px; border-radius: 6px; background: #eadfce; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+.title-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.endings-found { font-size: clamp(12px, 1.2vw, 14px); display: flex; align-items: center; justify-content: center; gap: 5px; flex-wrap: wrap; }
+.endings-found .mini { width: 42px; height: 24px; border-radius: 5px; object-fit: cover; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,.15); }
+.endings-found .lock { width: 42px; height: 24px; border-radius: 5px; background: #eadfce; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; }
+.felfel-tags { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+.felfel-tags span { font-size: clamp(11px, 1.05vw, 13px); font-weight: 700; background: #e8f7ee; color: #256e55; padding: 2px 9px; border-radius: 999px; }
+.lib-footer { flex: 0 0 auto; display: flex; justify-content: center; }
+.title-settings { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
 
 /* ---------------- إعداد الأصدقاء ---------------- */
 #setup { align-items: center; justify-content: center; padding: 14px; }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>افهمني جيدًا يا فلفل! — عالم قصصي تفاعلي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="felfel.css">
+</head>
+<body>
+
+<!-- ============ شاشة خريطة العالم القصصي ============ -->
+<section id="mapScreen" class="screen active">
+  <header class="bar">
+    <a class="pill-link" href="index.html" title="مكتبة القصص">🏠 مكتبة القصص</a>
+    <div class="stat-pill" id="mPlaces">🗺️ ٠ / ٥</div>
+    <div class="stat-pill" id="mEndings">⭐ ٠ / ٤</div>
+    <div class="mood-pill" id="mMood">☀️ مغامرة جديدة</div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="mReset" title="بداية جديدة">🔄</button>
+    <button class="icon-btn" id="mVoice" title="الصوت"></button>
+    <button class="icon-btn" id="mMusic" title="الموسيقى"></button>
+    <button class="icon-btn" id="mFull" title="ملء الشاشة">⛶</button>
+  </header>
+
+  <div class="map-layout">
+    <div class="map-head">
+      <div>
+        <h1>🐰 افهمني جيدًا يا فلفل!</h1>
+        <p class="map-sub" id="mapCaption">اضغط على أي مكان في الخريطة لتدخل القصة وتقرّر ماذا سيحدث!</p>
+      </div>
+      <div class="map-actions">
+        <button class="big-btn orange" id="btnStartGarden">🌷 ابدأ من حديقة البداية ←</button>
+      </div>
+    </div>
+
+    <div class="map-frame" id="mapFrame">
+      <div class="map-canvas" id="mapCanvas"></div>
+      <div class="map-pins" id="mapPins"></div>
+    </div>
+
+    <div class="map-footer">
+      <div class="endings-strip" id="mapEndingsStrip"></div>
+      <div class="map-tip" id="mapHoverTip">💡 كل اختيار يغيّر شكل العالم على الخريطة!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ شاشة المشهد التفاعلي ============ -->
+<section id="sceneScreen" class="screen">
+  <header class="bar">
+    <button class="pill-link" id="btnToMap">🗺️ خريطة العالم</button>
+    <a class="icon-btn" href="index.html" title="مكتبة القصص">🏠</a>
+    <div class="stat-pill" id="sPlaceBadge">🌷 حديقة البداية</div>
+    <div class="stat-pill" id="sHearts">💛 ٠</div>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="sSpeed" title="السرعة"></button>
+    <button class="icon-btn" id="sVoice" title="الصوت"></button>
+    <button class="icon-btn" id="sMusic" title="الموسيقى"></button>
+    <button class="icon-btn" id="sFull" title="ملء الشاشة">⛶</button>
+  </header>
+
+  <div class="stage">
+    <div class="pic" id="pic">
+      <div class="chapter" id="chapter"></div>
+    </div>
+    <div class="panel">
+      <div class="lines" id="lines"></div>
+      <div class="choices" id="choices"></div>
+      <div class="nav" id="nav">
+        <button class="nav-btn back" id="nBack" title="السابق">→</button>
+        <button class="nav-btn replay" id="nReplay">🔊 أعد القراءة</button>
+        <button class="nav-btn next" id="nNext">التالي ←</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ نافذة النهاية ============ -->
+<div id="endOverlay" class="overlay">
+  <div class="end-card">
+    <div class="the-end" id="endKicker">✨ اكتشفت نهاية! ✨</div>
+    <h2 id="endTitle"></h2>
+    <p class="end-lesson" id="endLesson"></p>
+    <div class="end-section">النهايات التي اكتشفتها في عالم فلفل وتوتا</div>
+    <div class="end-grid" id="endGrid"></div>
+    <div class="end-buttons">
+      <button class="big-btn blue" id="endToMap">🗺️ عد للخريطة لترى ما تغيّر!</button>
+      <button class="big-btn orange" id="endRetry">🔄 جرّب طريقًا آخر ←</button>
+    </div>
+  </div>
+</div>
+
+<canvas id="confetti"></canvas>
+
+<script src="felfel-story.js"></script>
+<script src="felfel-scenes.js"></script>
+<script src="felfel.js"></script>
+</body>
+</html>

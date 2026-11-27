@@ -11,20 +11,44 @@
 </head>
 <body>
 
-<!-- ============ الشاشة الرئيسية ============ -->
+<!-- ============ الشاشة الرئيسية: مكتبة القصص التفاعلية ============ -->
 <section id="title" class="screen active">
-  <div class="title-card">
-    <div class="title-text">
-      <h1>آدم <span>و</span>أسبوع الصداقة الكبير</h1>
-      <p class="sub">قصة مصوّرة ومسموعة.. أنت من يختار ماذا سيحدث!</p>
+  <div class="library-shell">
+    <div class="lib-header">
+      <h1>📚 مكتبة القصص التفاعلية للأطفال</h1>
+      <p class="sub">اختر القصة التي تحبّها — أنت البطل وأنت من يقرّر ماذا سيحدث!</p>
     </div>
-    <img class="cover" src="images/characters.jpg" alt="آدم وأصدقاؤه">
-    <div class="title-buttons">
-      <button class="big-btn orange" id="btnSolo">📖 ابدأ القصة</button>
-      <button class="big-btn blue" id="btnFriends">👫 العب مع أصدقائك</button>
+
+    <div class="story-grid">
+      <!-- القصة الأولى: آدم وأسبوع الصداقة الكبير -->
+      <article class="story-card">
+        <div class="card-badge orange">📖 قصة مصوّرة · ٥ فصول</div>
+        <h2>آدم <span>و</span>أسبوع الصداقة الكبير</h2>
+        <p class="card-desc">مغامرة في المدرسة الجديدة عن الصداقة والتعاون مع آدم وأصدقائه.</p>
+        <img class="cover" src="images/characters.jpg" alt="آدم وأصدقاؤه">
+        <div class="title-buttons">
+          <button class="big-btn orange" id="btnSolo">📖 ابدأ القصة</button>
+          <button class="big-btn blue" id="btnFriends">👫 العب مع أصدقائك</button>
+        </div>
+        <div id="endingsFound" class="endings-found"></div>
+      </article>
+
+      <!-- القصة الثانية: افهمني جيدًا يا فلفل! -->
+      <article class="story-card felfel-card">
+        <div class="card-badge teal">🗺️ عالم قصصي تفاعلي · خريطة حية</div>
+        <h2 class="teal-title">افهمني جيدًا يا فلفل!</h2>
+        <p class="card-desc">استكشف ٥ أماكن على خريطة حية تتغيّر حسب قراراتك مع فلفل وتوتا وميمو وبودي.</p>
+        <img class="cover" src="images/felfel/characters.jpg" alt="فلفل وتوتا وميمو وبودي">
+        <div class="title-buttons">
+          <a class="big-btn teal" href="felfel.html">🗺️ ادخل خريطة العالم ←</a>
+        </div>
+        <div class="felfel-tags">
+          <span>🌷 الحديقة</span><span>🐢 بيت توتا</span><span>🐰 بيت فلفل</span><span>🌉 الجسر</span><span>🌳 الساحة</span>
+        </div>
+      </article>
     </div>
-    <div class="title-row">
-      <div id="endingsFound" class="endings-found"></div>
+
+    <div class="lib-footer">
       <div class="title-settings">
         <button class="pill" id="tVoice"></button>
         <button class="pill" id="tSpeed"></button>
