@@ -211,7 +211,7 @@
       </g>
 
       <!-- 5. ساحة الأصدقاء (أعلى اليمين - شجرة عملاقة وأعلام ملونة!) -->
-      <g transform="translate(1065,230)">
+      <g transform="translate(1065,215)">
         <ellipse cx="0" cy="64" rx="155" ry="44" fill="#f7e3c2" stroke="#c9a573" stroke-width="4"/>
         ${tree(0, -40, 1.05)}
         <path d="M-135,-25 Q0,18 135,-25" fill="none" stroke="#6b4528" stroke-width="3.5"/>
@@ -219,6 +219,18 @@
         <polygon points="-45,-4 -18,0 -32,24" fill="#ffd166" stroke="#6b4528" stroke-width="2"/>
         <polygon points="15,0 42,-4 28,24" fill="#4dabf7" stroke="#6b4528" stroke-width="2"/>
         <polygon points="68,-8 95,-14 82,16" fill="#b197fc" stroke="#6b4528" stroke-width="2"/>
+      </g>
+
+      <!-- 6. ملعب الألعاب العادلة (أسفل المنتصف - خيمة ألعاب ملوّنة وصندوق كنز!) -->
+      <g transform="translate(688,635)">
+        <ellipse cx="0" cy="48" rx="155" ry="38" fill="#ffeec9" stroke="#d4b175" stroke-width="4"/>
+        <polygon points="-76,34 0,-56 76,34" fill="#ff758f" stroke="#7a2c3b" stroke-width="4.5" stroke-linejoin="round"/>
+        <polygon points="-32,34 0,-56 32,34" fill="#fffdf6" stroke="#7a2c3b" stroke-width="3.5"/>
+        <line x1="0" y1="-56" x2="0" y2="-82" stroke="#7a2c3b" stroke-width="4"/>
+        <polygon points="0,-82 32,-70 0,-58" fill="#ffd154" stroke="#8a6220" stroke-width="2.5"/>
+        <!-- صندوق كنز صغير لامع -->
+        <rect x="64" y="14" width="44" height="30" rx="5" fill="#c98544" stroke="#6b4528" stroke-width="3.5"/>
+        <rect x="64" y="24" width="44" height="6" fill="#ffd154"/>
       </g>
 
       <!-- الشخصيات الحية على الخريطة -->
@@ -314,7 +326,18 @@
       <g transform="translate(615,295)" class="sc-float"><ellipse rx="72" ry="42" fill="#fffdf6" stroke="#6b4b32" stroke-width="4"/><circle cx="-24" cy="0" r="8" fill="#ff8a3d"/><circle cx="0" cy="0" r="8" fill="#4f8ff0"/><circle cx="24" cy="0" r="8" fill="#45b86a"/></g>
     `,
     end_misunderstanding: () => `${bgGarden(true)}${ch("felfel", 315, 695, 355, { flip: true })}${ch("toota", 1065, 695, 295)}<ellipse cx="1040" cy="525" rx="8" ry="13" fill="#58b8e5" class="sc-float"/>`,
-    end_team: () => `${bgPlaza(true)}${ch("felfel", 290, 695, 345, { anim: "hop" })}${ch("toota", 550, 695, 295, { anim: "hop", delay: "0.15s" })}${ch("meemo", 820, 695, 335, { anim: "hop", delay: "0.3s" })}${ch("boody", 1090, 695, 385, { anim: "hop", delay: "0.45s" })}${heart(688, 225, 1.6, "#ff6b8b")}${star(405, 195, 24, "#ffd154")}${star(965, 195, 24, "#ffd154", "0.3s")}`
+    end_team: () => `${bgPlaza(true)}${ch("felfel", 290, 695, 345, { anim: "hop" })}${ch("toota", 550, 695, 295, { anim: "hop", delay: "0.15s" })}${ch("meemo", 820, 695, 335, { anim: "hop", delay: "0.3s" })}${ch("boody", 1090, 695, 385, { anim: "hop", delay: "0.45s" })}${heart(688, 225, 1.6, "#ff6b8b")}${star(405, 195, 24, "#ffd154")}${star(965, 195, 24, "#ffd154", "0.3s")}`,
+    garden_flowers: () => `${bgGarden(false)}${flower(688, 635, "#ff7eb6", 1.8)}${flower(590, 665, "#ffd166", 1.5)}${flower(790, 660, "#b388eb", 1.5)}${ch("felfel", 475, 695, 360)}${ch("toota", 905, 695, 305)}<circle cx="688" cy="590" r="14" fill="#e63946" stroke="#3c1b1f" stroke-width="3"/>${star(688, 430, 22, "#ffd154")}`,
+    boody_knock: () => `${bgCozyRoom("#edf8f2")}<rect x="975" y="210" width="210" height="330" rx="100" fill="#c98544" stroke="#6b4528" stroke-width="7"/>${ch("toota", 455, 685, 325)}${ch("boody", 835, 690, 395)}${heart(645, 355, 1.3, "#ff8fa3")}`,
+    toota_note: () => `${bgCozyRoom("#edf8f2")}${ch("toota", 435, 685, 340)}<g transform="translate(865,485) rotate(-4)"><rect x="-150" y="-105" width="300" height="210" rx="18" fill="#fffdf6" stroke="#ff8a3d" stroke-width="6"/>${flower(-55, -10, "#ff7eb6", 1.7)}${heart(55, -25, 1.4, "#ff6b8b")}</g>${star(675, 295, 20, "#ffd154")}`,
+    mirror_practice: () => `${bgCozyRoom("#fff4df")}<g transform="translate(945,380)"><ellipse rx="145" ry="185" fill="#d9f2ff" stroke="#c98544" stroke-width="14"/><ellipse rx="125" ry="165" fill="none" stroke="#fff" stroke-width="4" opacity="0.7"/></g>${ch("felfel", 515, 695, 385)}${ch("felfel", 945, 535, 250, { flip: true, noShadow: true })}${star(730, 265, 20, "#ffd154")}`,
+    gift_prep: () => `${bgCozyRoom("#fff4df")}${ch("felfel", 485, 695, 380)}<g transform="translate(885,535)" class="sc-float"><rect x="-78" y="-65" width="156" height="130" rx="16" fill="#ff758f" stroke="#7a2c3b" stroke-width="5"/><rect x="-16" y="-65" width="32" height="130" fill="#ffd154"/><rect x="-78" y="-16" width="156" height="32" fill="#ffd154"/><circle cx="-24" cy="-84" r="24" fill="#ffd154" stroke="#8a6220" stroke-width="4"/><circle cx="24" cy="-84" r="24" fill="#ffd154" stroke="#8a6220" stroke-width="4"/></g>${heart(705, 330, 1.35, "#ff6b8b")}`,
+    meadow: () => `${bgPlaza(false)}<g transform="translate(688,430)"><polygon points="-95,85 0,-35 95,85" fill="#ff758f" stroke="#7a2c3b" stroke-width="5"/><polygon points="-40,85 0,-35 40,85" fill="#fffdf6" stroke="#7a2c3b" stroke-width="4"/></g>${ch("felfel", 295, 700, 340, { anim: "hop" })}${ch("toota", 550, 700, 290)}${ch("meemo", 825, 700, 330, { anim: "hop", delay: "0.2s" })}${ch("boody", 1085, 700, 380)}`,
+    unfair_race: () => `${bgGarden(false)}<line x1="1080" y1="450" x2="1080" y2="755" stroke="#fff" stroke-width="10" stroke-dasharray="18 14"/>${ch("felfel", 1045, 685, 345, { anim: "hop" })}${ch("toota", 265, 695, 290)}`,
+    hide_seek: () => `${bgGarden(false)}<ellipse cx="920" cy="655" rx="95" ry="52" fill="#b7c2cc" stroke="#6c7885" stroke-width="5"/>${ch("toota", 920, 685, 250)}${ch("felfel", 415, 695, 355)}${ch("meemo", 645, 665, 310, { anim: "hop" })}${star(920, 415, 22, "#ffd154")}`,
+    treasure_hunt: () => `${bgPlaza(false)}<g transform="translate(688,335)" class="sc-float"><rect x="-110" y="-75" width="220" height="150" rx="14" fill="#f7e3b5" stroke="#8f5d34" stroke-width="6"/><path d="M-75,35 Q-10,-35 65,15" fill="none" stroke="#d94e4e" stroke-width="6" stroke-dasharray="12 10"/><text x="68" y="32" font-size="44" font-weight="900" fill="#d94e4e" text-anchor="middle">✕</text></g>${ch("felfel", 275, 705, 335)}${ch("toota", 540, 705, 290)}${ch("meemo", 830, 705, 330, { anim: "hop" })}${ch("boody", 1095, 705, 380)}`,
+    end_treasure: () => `${bgPlaza(true)}<g transform="translate(688,585)"><rect x="-115" y="-55" width="230" height="125" rx="16" fill="#c98544" stroke="#6b4528" stroke-width="6"/><rect x="-115" y="-12" width="230" height="22" fill="#ffd154"/><circle cx="0" cy="-2" r="18" fill="#ffe885" stroke="#8a6220" stroke-width="4"/>${star(-55, -88, 22, "#ffd154")}${star(0, -108, 28, "#fff29c", "0.2s")}${star(55, -88, 22, "#ffd154", "0.4s")}</g>${ch("felfel", 250, 705, 340, { anim: "hop" })}${ch("toota", 455, 705, 305, { anim: "hop", delay: "0.15s" })}${ch("meemo", 925, 705, 330, { anim: "hop", delay: "0.3s" })}${ch("boody", 1125, 705, 375, { anim: "hop", delay: "0.45s" })}`,
+    end_letter: () => `${bgGarden(false)}${rainbow(688, 420, 320)}<g transform="translate(688,430)" class="sc-float"><rect x="-120" y="-82" width="240" height="164" rx="18" fill="#fffdf6" stroke="#ff8a3d" stroke-width="6"/><path d="M-120,-82 L0,18 L120,-82" fill="none" stroke="#ff8a3d" stroke-width="5"/>${heart(0, -24, 1.35, "#ff6b8b")}</g>${ch("felfel", 425, 705, 365, { anim: "hop" })}${ch("toota", 950, 705, 310, { anim: "hop", delay: "0.2s" })}`
   };
 
   window.renderFelfelSceneSVG = function (name) {

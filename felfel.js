@@ -9,6 +9,7 @@
   const SCENES = window.FELFEL_SCENES;
   const CAST = window.FELFEL_CAST;
   const PLACES = window.FELFEL_PLACES;
+  const BADGES = window.FELFEL_BADGES || {};
   const ENDINGS = Object.keys(SCENES).filter((k) => SCENES[k].end);
 
   const $ = (s) => document.querySelector(s);
@@ -33,7 +34,8 @@
   const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) {} return d; };
 
   let settings = Object.assign({ voice: true, music: false, slow: false }, load("felfel_settings", {}));
-  let progress = Object.assign({ mood: "init", visited: [], endings: [], hearts: 0 }, load("felfel_progress", {}));
+  let progress = Object.assign({ mood: "init", visited: [], endings: [], badges: [], hearts: 0 }, load("felfel_progress", {}));
+  if (!Array.isArray(progress.badges)) progress.badges = [];
   let currentId = null, history = [];
 
   // =================================================================== المؤثرات والموسيقى
@@ -70,7 +72,7 @@
   // =================================================================== مشغّل الصوت العربي الطبيعي (MP3)
   let speakToken = 0, currentAudio = null, wordTimer = null;
   const audioCache = new Map();
-  const audioUrl = (key) => `audio/felfel/${key}.mp3?v1`;
+  const audioUrl = (key) => `audio/felfel/${key}.mp3?v2`;
 
   function stopSpeaking() {
     speakToken++;
@@ -189,6 +191,7 @@
     save("felfel_progress", progress);
 
     $("#mPlaces").textContent = `🗺️ ${progress.visited.length} / ${PLACES.length}`;
+    $("#mBadges").textContent = `🏅 ${progress.badges.length} / ${Object.keys(BADGES).length}`;
     $("#mEndings").textContent = `⭐ ${progress.endings.length} / ${ENDINGS.length}`;
     $("#mMood").textContent = MOOD_LABELS[progress.mood] || MOOD_LABELS.init;
 
@@ -318,8 +321,21 @@
         b.innerHTML = `<span class="ci">${c.icon}</span><span class="ct">${escapeHTML(c.t)}</span>`;
         b.onclick = () => {
           sfx(c.heart ? "heart" : "pop");
-          if (c.heart) { progress.hearts++; save("felfel_progress", progress); }
-          openScene(c.go, true);
+          if (c.heart) progress.hearts++;
+          const newB = c.badge && BADGES[c.badge] && !progress.badges.includes(c.badge) ? c.badge : null;
+          if (newB) progress.badges.push(newB);
+          save("felfel_progress", progress);
+          if (newB) {
+            const bm = BADGES[newB];
+            stopSpeaking();
+            $("#btIcon").textContent = bm.icon; $("#btName").textContent = bm.name; $("#btTip").textContent = bm.tip;
+            $("#badgeToast").classList.add("active");
+            sfx("fanfare"); confetti(90);
+            speakQueue([{ key: `badge_${newB}` }]);
+            $("#btOk").onclick = () => { $("#badgeToast").classList.remove("active"); stopSpeaking(); sfx("pop"); openScene(c.go, true); };
+          } else {
+            openScene(c.go, true);
+          }
         };
         choicesBox.appendChild(b);
         queue.push({ key: `${id}_c${i}`, onStart: () => flashChoice(i) });
@@ -369,7 +385,7 @@
   $("#mFull").onclick = toggleFull; $("#sFull").onclick = toggleFull;
   $("#mReset").onclick = () => {
     sfx("pop");
-    progress = { mood: "init", visited: [], endings: [], hearts: 0 };
+    progress = { mood: "init", visited: [], endings: [], badges: [], hearts: 0 };
     save("felfel_progress", progress);
     renderMap(true);
   };

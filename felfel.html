@@ -15,8 +15,9 @@
 <section id="mapScreen" class="screen active">
   <header class="bar">
     <a class="pill-link" href="index.html" title="مكتبة القصص">🏠 مكتبة القصص</a>
-    <div class="stat-pill" id="mPlaces">🗺️ ٠ / ٥</div>
-    <div class="stat-pill" id="mEndings">⭐ ٠ / ٤</div>
+    <div class="stat-pill" id="mPlaces">🗺️ ٠ / ٦</div>
+    <div class="stat-pill" id="mBadges">🏅 ٠ / ٦</div>
+    <div class="stat-pill" id="mEndings">⭐ ٠ / ٦</div>
     <div class="mood-pill" id="mMood">☀️ مغامرة جديدة</div>
     <div class="spacer"></div>
     <button class="icon-btn" id="mReset" title="بداية جديدة">🔄</button>
@@ -77,6 +78,17 @@
     </div>
   </div>
 </section>
+
+<!-- ============ نافذة وسام التفاهم ============ -->
+<div id="badgeToast" class="overlay">
+  <div class="toast-card">
+    <div class="toast-title">✨ وسام تفاهم جديد! ✨</div>
+    <div class="toast-icon" id="btIcon"></div>
+    <div class="toast-name" id="btName"></div>
+    <div class="toast-tip" id="btTip"></div>
+    <button class="big-btn orange" id="btOk">رائع! ←</button>
+  </div>
+</div>
 
 <!-- ============ نافذة النهاية ============ -->
 <div id="endOverlay" class="overlay">
